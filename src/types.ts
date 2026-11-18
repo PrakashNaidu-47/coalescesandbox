@@ -4,11 +4,6 @@ export interface Category {
   sort_order: number;
 }
 
-export interface DietaryTag {
-  id: string;
-  name: string;
-}
-
 export interface MenuItem {
   id: string;
   category_id: string;
@@ -19,7 +14,15 @@ export interface MenuItem {
   is_available: boolean;
   is_deleted?: boolean;
   category?: Category;
-  tags?: string[];
+  tags: string[];
+  allergens?: string[];
+  created_at?: string;
+  updated_at?: string;
+}
+
+export interface DietaryTag {
+  id: string;
+  name: string;
 }
 
 export interface FilterState {
@@ -27,4 +30,10 @@ export interface FilterState {
   categoryId?: string;
   dietaryTags: string[];
   priceRange?: [number, number];
+}
+
+export interface AdminUser {
+  id: string;
+  email: string;
+  role: 'ADMIN';
 }
